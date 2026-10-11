@@ -1,8 +1,8 @@
 # EduSnap Mathematics Toolkit
 
-A responsive, dark-first mathematics toolkit built as a static frontend. Open index.html directly, or serve the outputs directory locally:
+A responsive, dark-first mathematics toolkit built as a static frontend. Open `index.html` directly, or serve this repository from its root:
 
-    python3 -m http.server 8000 --directory outputs
+    python3 -m http.server 8000
 
 Then visit http://localhost:8000.
 
