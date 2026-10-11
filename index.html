@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101413">
+  <meta name="description" content="EduSnap Mathematics Toolkit — interactive tools for exploring, visualizing, and understanding mathematics.">
+  <title>EduSnap — Mathematics Toolkit</title>
+  <link rel="icon" type="image/png" href="public/brand/edusnap-favicon.png">
+  <link rel="apple-touch-icon" href="public/brand/edusnap-favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home-view" aria-label="EduSnap home"><edu-snap-logo class="brand-logo" size="md" alt="EduSnap — Learn in a snap"></edu-snap-logo></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="home">Tools</button>
+        <button class="nav-link" data-view="workspace">My Workspace</button>
+        <button class="nav-link" data-view="about">About</button>
+      </nav>
+      <div class="top-actions"><span class="guest-status"><i></i> Guest mode</span><button class="button button-quiet sign-in-btn">Sign in</button><button class="mobile-menu-btn" aria-label="Open navigation">☰</button></div>
+    </header>
+
+    <main id="main-content">
+      <section id="home-view" class="view active">
+        <section class="hero content-width">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> YOUR MATHEMATICS LABORATORY</div>
+            <h1>Explore Mathematics.<br><span>Don't just calculate it.</span></h1>
+            <p>Interactive tools for visualizing, experimenting with, and understanding mathematics.</p>
+            <div class="hero-actions"><button class="button button-primary" data-scroll-tools>Start exploring <span>↘</span></button><button class="button button-outline" data-scroll-tools>Explore tools</button></div>
+            <div class="hero-note"><span class="spark">✳</span> No sign-up required. Open a tool and get curious.</div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-topline"><span>FUNCTION PREVIEW</span><span class="live-dot"></span></div>
+            <div class="hero-equation">f(x) = <span>x</span><sup>2</sup> · sin(x)</div>
+            <svg class="hero-graph" viewBox="0 0 500 260" preserveAspectRatio="none">
+              <g class="grid-lines"><path d="M0 40H500M0 85H500M0 130H500M0 175H500M0 220H500M40 0V260M100 0V260M160 0V260M220 0V260M280 0V260M340 0V260M400 0V260M460 0V260"/></g>
+              <path class="graph-axis" d="M0 130H500M250 0V260"/>
+              <path class="graph-line" d="M0 140 C30 142 46 156 70 170 C100 188 114 188 133 170 C155 149 164 107 182 79 C201 48 223 39 242 59 C260 79 260 121 273 146 C292 181 312 197 332 179 C354 160 359 106 378 70 C398 33 422 27 441 52 C463 81 458 128 478 154 C488 169 494 173 500 174"/>
+              <circle class="graph-point" cx="332" cy="179" r="5"/><circle class="graph-point-soft" cx="242" cy="59" r="4"/>
+            </svg>
+            <div class="plot-readout"><span><i class="readout-swatch"></i> y = x² · sin(x)</span><span class="mono">x: 2.40&nbsp;&nbsp; y: 3.89</span></div>
+            <div class="visual-chip chip-one">∫ f(x) dx</div><div class="visual-chip chip-two">A × B</div><div class="visual-chip chip-three">P(H) = ½</div>
+          </div>
+        </section>
+
+        <section id="tools-section" class="tools-section content-width">
+          <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> MADE TO EXPLORE</div><h2>Mathematics Toolkit</h2><p>Pick a tool. Change a value. See what happens.</p></div><div class="tool-count"><strong>09</strong><span>INTERACTIVE TOOLS</span></div></div>
+          <div class="tool-grid" id="tool-grid"></div>
+        </section>
+        <section class="bottom-note content-width"><span class="bottom-note-icon">⌘</span><div><strong>Your work stays yours.</strong><p>Try every tool freely. Create a local workspace when you're ready to save your explorations.</p></div><button class="text-button sign-in-btn">Set up workspace <span>↗</span></button></section>
+      </section>
+
+      <section id="tool-view" class="view content-width" aria-live="polite"></section>
+      <section id="workspace-view" class="view content-width"></section>
+      <section id="about-view" class="view content-width"></section>
+    </main>
+    <footer class="footer content-width"><span>Mathematics, made tangible.</span><span class="footer-right">Built for curiosity <span>✳</span></span></footer>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close">×</button><edu-snap-logo class="modal-logo" size="lg" alt="EduSnap — Learn in a snap"></edu-snap-logo>
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL WORKSPACE</div>
+      <h2 id="modal-title">Sign in to save your work.</h2>
+      <p>There’s no account service connected in this version. Create a local workspace to save tools and experiments in this browser.</p>
+      <label class="field-label" for="workspace-name">What should we call you?</label><input id="workspace-name" class="text-input" type="text" placeholder="Your name" maxlength="32">
+      <div class="modal-actions"><button class="button button-primary" id="create-workspace">Create local workspace <span>→</span></button><button class="button button-quiet" id="continue-guest">Continue as guest</button></div>
+      <div class="privacy-note">Saved privately on this device using browser storage.</div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
